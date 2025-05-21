@@ -1,13 +1,22 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0">All Restaurants</h1>
-    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-primary" %>
+    <h1 class="mb-0">
+      <i class="fas fa-list-alt me-2"></i>All Restaurants
+    </h1>
+    <%= link_to new_restaurant_path, class: "btn btn-primary" do %>
+      <i class="fas fa-plus me-2"></i>Add Restaurant
+    <% end %>
   </div>
 
-  <ul class="list-group">
+  <ul class="list-group shadow-sm">
     <% @restaurants.each do |restaurant| %>
-      <li class="list-group-item">
-        <%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none" %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
+          <i class="fas fa-utensils me-2 text-secondary"></i><%= restaurant.name %>
+        <% end %>
+        <%= link_to restaurant_path(restaurant), class: "btn btn-sm btn-outline-secondary" do %>
+          <i class="fas fa-arrow-right"></i>
+        <% end %>
       </li>
     <% end %>
   </ul>
