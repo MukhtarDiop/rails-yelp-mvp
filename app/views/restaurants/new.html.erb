@@ -1,0 +1,12 @@
+<h1 class="card-title mb-4 text-center">
+ <i class="fas fa-tasks me-2"></i>New restaurant
+</h1>
+
+
+
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.submit class: "btn btn-primary mt-4" %>
+<% end %>
